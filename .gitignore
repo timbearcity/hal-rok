@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 .cache
 *.log
+bots/log/
 .vscode
 .DS_Store
 env/
