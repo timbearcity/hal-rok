@@ -5,5 +5,5 @@ __pycache__/
 bots/log/
 .vscode
 .DS_Store
-env/
+.venv/
 bots/secrets.py
