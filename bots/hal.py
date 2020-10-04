@@ -2,6 +2,7 @@ import logging
 
 import discord
 from discord.ext import commands
+import wikipedia
 
 from secrets import TOKEN
 
@@ -76,6 +77,21 @@ async def arkclear(ctx):
 @bot.command()
 async def wiki(ctx, *args):
     await ctx.send(f"https://en.wikipedia.org/wiki/{'_'.join(args)}")
+
+
+@bot.command()
+async def wikiception(ctx, *args):
+    args = list(args)
+    depth = 0
+    if args[-1].isdigit():
+        depth = int(args.pop())
+    article = wikipedia.page(' '.join(args))
+    results = [article.title]
+    if depth > 0:
+        for _ in range(depth):
+            article = wikipedia.page(article.links[0])
+            results.append(article.title)
+    await ctx.send(f"{' > '.join(results)}\n{article.url}")
 
 
 bot.run(TOKEN)
