@@ -1,21 +1,34 @@
 import logging
 
 import discord
+from discord.ext import commands
 
 from secrets import TOKEN
 
 
 logger = logging.getLogger('discord')
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler(filename='logs/discord.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s'))
 logger.addHandler(handler)
 
 client = discord.Client()
 
+bot = commands.Bot(command_prefix='!')
+
+
 @client.event
 async def on_ready():
-    print("We have logged in as {0.user}".format(client))
+    print("Logged in as {0.user}".format(client))
+
+
+@bot.command()
+async def roles(ctx):
+    print(ctx.message)
+    role_list = [role.name for role in ctx.author.roles]
+    role_string = ', '.join(role_list)
+    await ctx.send(role_string)
+
 
 @client.event
 async def on_message(message):
@@ -42,5 +55,8 @@ async def on_message(message):
 
         if 30 <= level and r3 not in member.roles:
             await member.add_roles(r3)
+
+        await bot.process_commands(message)
+
 
 client.run(TOKEN)
