@@ -14,7 +14,10 @@ handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(name)s -
 logger.addHandler(handler)
 
 # Instantiation of the bot client
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='!', intents=intents)
+
 
 @bot.event
 async def on_ready():
@@ -52,8 +55,22 @@ async def roles(ctx):
     await ctx.send(f"{ctx.message.author.mention} Your roles are: {roles}")
 
 
-#@bot.command()
-#async def 
+@bot.command()
+@commands.has_role(703282083040198666) # R4
+async def arkadd(ctx):
+    aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
+    bot_role = discord.utils.get(ctx.guild.roles, id=756897839732490371)
+    for mention in ctx.message.mentions:
+        if aoo_role not in mention.roles and bot_role not in mention.roles:
+            await mention.add_roles(aoo_role)
+
+
+@bot.command()
+@commands.has_role(703282083040198666) # R4
+async def arkclear(ctx):
+    aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
+    for member in aoo_role.members:
+        await member.remove_roles(aoo_role)
 
 
 bot.run(TOKEN)
