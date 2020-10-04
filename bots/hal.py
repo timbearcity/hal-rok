@@ -73,4 +73,9 @@ async def arkclear(ctx):
         await member.remove_roles(aoo_role)
 
 
+@bot.command()
+async def wiki(ctx, *args):
+    await ctx.send(f"https://en.wikipedia.org/wiki/{'_'.join(args)}")
+
+
 bot.run(TOKEN)
