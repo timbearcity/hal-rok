@@ -1,3 +1,4 @@
+from random import randint
 import logging
 
 import discord
@@ -49,14 +50,14 @@ async def on_message(message):
 
 # Commands
 
-@bot.command()
+@bot.command(description="Returns all your roles")
 async def roles(ctx):
     roles = [role.name for role in ctx.author.roles[1:]]
     roles = ', '.join(roles)
     await ctx.send(f"{ctx.message.author.mention} Your roles are: {roles}")
 
 
-@bot.command()
+@bot.command(category="R4", description="Gives all mentioned members the Osiris Combatant role")
 @commands.has_role(703282083040198666) # R4
 async def arkadd(ctx):
     aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
@@ -66,7 +67,7 @@ async def arkadd(ctx):
             await mention.add_roles(aoo_role)
 
 
-@bot.command()
+@bot.command(category="R4", description="Removes the Osiris Combatant role from all members")
 @commands.has_role(703282083040198666) # R4
 async def arkclear(ctx):
     aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
@@ -74,12 +75,12 @@ async def arkclear(ctx):
         await member.remove_roles(aoo_role)
 
 
-@bot.command()
+@bot.command(description="Returns the requested Wikipedia article")
 async def wiki(ctx, *args):
     await ctx.send(f"https://en.wikipedia.org/wiki/{'_'.join(args)}")
 
 
-@bot.command()
+@bot.command(aliases=['wc'], description="Returns the requested Wikipedia article. If the keyword is followed by a number it will return a new article that many links deep from the origin article.")
 async def wikiception(ctx, *args):
     args = list(args)
     depth = 0
@@ -89,9 +90,14 @@ async def wikiception(ctx, *args):
     results = [article.title]
     if depth > 0:
         for _ in range(depth):
-            article = wikipedia.page(article.links[0])
+            article = wikipedia.page(article.links[randint(0, len(article.links)-1)])
             results.append(article.title)
     await ctx.send(f"{' > '.join(results)}\n{article.url}")
+
+
+@bot.command()
+async def whoami(ctx):
+    await ctx.send(f"I know life can be tough and we all go through identity crises at times. However, you'd be pleased to know that you're {ctx.message.author.mention}.")
 
 
 bot.run(TOKEN)
