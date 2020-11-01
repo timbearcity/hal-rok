@@ -2,8 +2,9 @@ __pycache__/
 *.py[cod]
 .cache
 *.log
-bots/logs/
+logs/
 .vscode
 .DS_Store
 .venv/
 bots/secrets.py
+images/

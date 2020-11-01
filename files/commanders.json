@@ -1,0 +1,232 @@
+{
+    "yiseonggye": {
+        "name": "Yi Seong-Gye",
+        "aliases": ["ysg"],
+        "roles": ["archer", "garrison"]
+    },
+    "minamotonoyoshitsune": {
+        "name": "Minamoto no Yoshitsune",
+        "aliases": ["minamoto", "mina"],
+        "roles": ["cavalry", "barbarians", "forts"]
+    },
+    "scipioafricanus": {
+        "name": "Scipio Africanus",
+        "aliases": ["scipio"],
+        "roles": ["mixed"]
+    },
+    "euljimundeok": {
+        "name": "Eulji Mundeok",
+        "aliases": ["eulji"],
+        "roles": ["infantry", "garrison"]
+    },
+    "richardi": {
+        "name": "Richard I",
+        "aliases": ["richard"],
+        "roles": ["infantry", "garrison"]
+    },
+    "hermann": {
+        "name": "Hermann",
+        "aliases": ["herman"],
+        "roles": ["archer"]
+    },
+    "lohar": {
+        "name": "Lohar",
+        "aliases": [],
+        "roles": ["barbarians"]
+    },
+    "boudica": {
+        "name": "Boudica",
+        "aliases": [],
+        "roles": ["barbarians", "forts"]
+    },
+    "belisarius": {
+        "name": "Belisarius",
+        "aliases": ["beli"],
+        "roles": ["cavalry", "speed", "barbarians"]
+    },
+    "keira": {
+        "name": "Keira",
+        "aliases": [],
+        "roles": ["archer", "barbarians"]
+    },
+    "aethelflaed": {
+        "name": "\u00c6thelfl\u00e6d",
+        "aliases": ["aeth"],
+        "roles": ["mixed", "rally", "barbarians"]
+    },
+    "suntzu": {
+        "name": "Sun Tzu",
+        "aliases": ["sun"],
+        "roles": ["infantry", "garrison"]
+    },
+    "joanofarc": {
+        "name": "Joan of Arc",
+        "aliases": ["joan"],
+        "roles": ["support", "gathering"]
+    },
+    "caocao": {
+        "name": "Cao Cao",
+        "aliases": ["cao", "cc"],
+        "roles": ["cavalry", "speed", "barbarians", "forts"]
+    },
+    "sarka": {
+        "name": "S\u00e1rka",
+        "aliases": [],
+        "roles": ["gathering"]
+    },
+    "constance": {
+        "name": "Constance",
+        "aliases": [],
+        "roles": ["gathering"]
+    },
+    "gaiusmarius": {
+        "name": "Gaius Marius",
+        "aliases": ["gaius"],
+        "roles": ["gathering"]
+    },
+    "centurion": {
+        "name": "Centurion",
+        "aliases": [],
+        "roles": ["gathering"]
+    },
+    "baibars": {
+        "name": "Baibars",
+        "aliases": [],
+        "roles": ["cavalry"]
+    },
+    "kusunokimasashige": {
+        "name": "Kusunoki Masashige",
+        "aliases": ["kusunoki", "kusu"],
+        "roles": ["archer", "garrison"]
+    },
+    "dragonlancer": {
+        "name": "Dragon Lancer",
+        "aliases": ["dragon", "lancer"],
+        "roles": ["speed"]
+    },
+    "ishidamitsunari": {
+        "name": "Ishida Mitsunari",
+        "aliases": ["ishida"],
+        "roles": ["gathering"]
+    },
+    "cleopatravii": {
+        "name": "Cleopatra VII",
+        "aliases": ["cleopatra", "cleo"],
+        "roles": ["gathering"]
+    },
+    "seondeok": {
+        "name": "Seondeok",
+        "aliases": ["seon"],
+        "roles": ["gathering"]
+    },
+    "matildaofflanders": {
+        "name": "Matilda of Flanders",
+        "aliases": ["matilda"],
+        "roles": ["gathering"]
+    },
+    "osmani": {
+        "name": "Osman I",
+        "aliases": ["osman"],
+        "roles": []
+    },
+    "juliuscaesar": {
+        "name": "Julius Caesar",
+        "aliases": ["julius", "caesar"],
+        "roles": []
+    },
+    "fredericki": {
+        "name": "Frederick I",
+        "aliases": ["frederick", "fred"],
+        "roles": []
+    },
+    "charlesmartel": {
+        "name": "Charles Martel",
+        "aliases": ["charles", "martel", "cm"],
+        "roles": []
+    },
+    "elcid": {
+        "name": "El Cid",
+        "aliases": ["cid"],
+        "roles": []
+    },
+    "mehmedii": {
+        "name": "Mehmed II",
+        "aliases": ["mehmed"],
+        "roles": []
+    },
+    "mulan": {
+        "name": "Mulan",
+        "aliases": [],
+        "roles": []
+    },
+    "genghiskhan": {
+        "name": "Genghis Khan",
+        "aliases": ["genghis", "khan"],
+        "roles": []
+    },
+    "charlemagne": {
+        "name": "Charlemagne",
+        "aliases": [],
+        "roles": []
+    },
+    "pelagius": {
+        "name": "Pelagius",
+        "aliases": ["pela"],
+        "roles": []
+    },
+    "tomoegozen": {
+        "name": "Tomoe Gozen",
+        "aliases": ["tomoe"],
+        "roles": []
+    },
+    "lancelot": {
+        "name": "Lancelot",
+        "aliases": [],
+        "roles": []
+    },
+    "citykeeper": {
+        "name": "City Keeper",
+        "aliases": [],
+        "roles": []
+    },
+    "markswoman": {
+        "name": "Markswoman",
+        "aliases": [],
+        "roles": []
+    },
+    "hannibalbarca": {
+        "name": "Hannibal Barca",
+        "aliases": ["hannibal", "barca"],
+        "roles": []
+    },
+    "saladin": {
+        "name": "Saladin",
+        "aliases": [],
+        "roles": []
+    },
+    "constantinei": {
+        "name": "Constantine I",
+        "aliases": ["constantine"],
+        "roles": []
+    },
+    "alexanderthegreat": {
+        "name": "Alexander the Great",
+        "aliases": ["alexander", "alex"],
+        "roles": []
+    },
+    "edwardofwoodstock": {
+        "name": "Edward of Woodstock",
+        "aliases": ["edward"],
+        "roles": []
+    },
+    "tomyris": {
+        "name": "Tomyris",
+        "aliases": [],
+        "roles": []
+    },
+    "wuzetian": {
+        "name": "Wu Zetian",
+        "aliases": ["wu", "zetian"],
+        "roles": []
+    }
+}

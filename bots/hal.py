@@ -1,5 +1,8 @@
 from random import randint
+import os
 import logging
+import json
+import glob
 
 import discord
 from discord.ext import commands
@@ -32,8 +35,9 @@ async def on_message(message):
         return
 
     if bot.user in message.mentions:
-        await message.add_reaction(u'\U0001F95B') # Glass of milk emoji
+        await message.add_reaction(u'\U0001F95B') # If bot is mentioned, react with a glass of milk emoji
 
+    # Bot gives members R2 if level 20 is reached and R3 is level 30 is reached
     if message.author.id == 159985870458322944 and 'level' in message.content: # MEE6 bot ID
         member = message.mentions[1]
         level = int(message.content.split()[13][:-1])
@@ -49,15 +53,14 @@ async def on_message(message):
 
 
 # Commands
-
-@bot.command(description="Returns all your roles")
+@bot.command(aliases=['role'], description="Returns all your roles.")
 async def roles(ctx):
     roles = [role.name for role in ctx.author.roles[1:]]
     roles = ', '.join(roles)
     await ctx.send(f"{ctx.message.author.mention} Your roles are: {roles}")
 
 
-@bot.command(category="R4", description="Gives all mentioned members the Osiris Combatant role")
+@bot.command(category="R4", description="Gives all mentioned members the Osiris Combatant role.")
 @commands.has_role(703282083040198666) # R4
 async def arkadd(ctx):
     aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
@@ -67,7 +70,7 @@ async def arkadd(ctx):
             await mention.add_roles(aoo_role)
 
 
-@bot.command(category="R4", description="Removes the Osiris Combatant role from all members")
+@bot.command(category="R4", description="Removes the Osiris Combatant role from all members.")
 @commands.has_role(703282083040198666) # R4
 async def arkclear(ctx):
     aoo_role = discord.utils.get(ctx.guild.roles, id=762324577824669756)
@@ -95,9 +98,29 @@ async def wikiception(ctx, *args):
     await ctx.send(f"{' > '.join(results)}\n{article.url}")
 
 
-@bot.command()
+@bot.command(description="Who am I?")
 async def whoami(ctx):
-    await ctx.send(f"I know life can be tough and we all go through identity crises at times. However, you'd be pleased to know that you're {ctx.message.author.mention}.")
+    await ctx.send(f"I know life can be tough and we all go through identity crises at times. However, you'll be pleased to know that you're {ctx.message.author.mention}.")
+
+
+@bot.command(aliases=['leaderboards', 'top', 'toplist', 'leader', 'leaders'])
+async def leaderboard(ctx):
+    await ctx.send("https://mee6.xyz/leaderboard/703247278776778842")
+
+
+# A command for each commander to return an image of possible talent builds
+with open('files/commanders.json', 'r') as f:
+    data = json.load(f)
+
+for commander in data:
+    @bot.command(name=commander, aliases=data[commander]['aliases'], description=data[commander]['name'])
+    async def _commander(ctx, *args):
+        directory = f'images/{ctx.command}/'
+        try:
+            await ctx.send(file=discord.File(glob.glob(os.path.join(directory, args[0] + '.*'))[0]))
+        except:
+            images = [img.split('.')[0] for img in os.listdir(directory)]
+            await ctx.send(f"```python\n{ctx.command.description} - Available talent builds\n{ctx.prefix}{ctx.command}{ctx.command.aliases} {' '.join(images)}```")
 
 
 bot.run(TOKEN)
