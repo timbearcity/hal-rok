@@ -8,8 +8,6 @@ import discord
 from discord.ext import commands
 import wikipedia
 
-from secrets import TOKEN
-
 
 # Logging
 logger = logging.getLogger('discord')
@@ -123,4 +121,4 @@ for commander in data:
             await ctx.send(f"```python\n{ctx.command.description} - Available talent builds\n{ctx.prefix}{ctx.command}{ctx.command.aliases} {' '.join(images)}```")
 
 
-bot.run(TOKEN)
+bot.run(os.getenv("DISCORD_TOKEN"))
