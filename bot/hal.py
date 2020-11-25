@@ -1,8 +1,10 @@
 from random import randint
 import os
 import logging
+from logging import handlers
 import json
 import glob
+import re
 
 import discord
 from discord.ext import commands
@@ -11,9 +13,11 @@ import wikipedia
 
 # Logging
 logger = logging.getLogger('discord')
-logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='logs/discord.log', encoding='utf-8', mode='w')
+logger.setLevel(logging.INFO)
+handler = handlers.TimedRotatingFileHandler('logs/hal.log', when='midnight', interval=1)
 handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s'))
+handler.suffix = '%Y%m%d'
+handler.extMatch = re.compile(r'^\d{8}$')
 logger.addHandler(handler)
 
 # Instantiation of the bot client
