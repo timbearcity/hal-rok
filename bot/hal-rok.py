@@ -14,7 +14,7 @@ import wikipedia
 # Logging
 logger = logging.getLogger('discord')
 logger.setLevel(logging.INFO)
-handler = handlers.TimedRotatingFileHandler('logs/hal.log', when='midnight', interval=1)
+handler = handlers.TimedRotatingFileHandler('logs/hal-rok.log', when='midnight', interval=1)
 handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s'))
 handler.suffix = '%Y%m%d'
 handler.extMatch = re.compile(r'^\d{8}$')
